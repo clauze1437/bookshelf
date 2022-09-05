@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bookshelf Apps</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+        integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.26/dist/sweetalert2.min.css">
+</head>
+
+<body>
+    <header class="head_bar">
+        <h1 class="head_bar__title">Welcome to Bookshelf Apps</h1>
+    </header>
+
+    <main>
+        <!-- section untuk form input buku -->
+        <section class="input_section">
+            <h2>Masukan Buku Baru</h2>
+            <form id="inputBook" autocomplete="off">
+                <div class="input">
+                    <label for="inputBookTitle" class="form-label">Judul <span class="text-danger">*</span></label>
+                    <input type="text" id="inputBookTitle" class="form-control"
+                        placeholder="what is the title of the book?" maxlength="50" autofocus />
+                </div>
+
+                <div class="input">
+                    <label for="inputBookAuthor" class="form-label">Penulis <span class="text-danger"></span></label>
+                    <input type="text" id="inputBookAuthor" class="form-control"
+                        placeholder="what is the name of the author of the book?" maxlength="50" />
+                </div>
+
+                <div class="input">
+                    <label for="inputBookYear" class="form-label">Tahun <span class="text-danger"></span></label>
+                    <input type="number" id="inputBookYear" class="form-control"
+                        placeholder="when was the book published?" min="1800" max="2022" />
+                </div>
+
+                <div class="input_inline">
+                    <label for="inputBookIsComplete" class="form-label">Selesai dibaca</label>
+                    <input type="checkbox" id="inputBookIsComplete" />
+                </div>
+
+                <button type="submit" id="bookSubmit" disabled>Masukkan Buku ke rak <bold>Belum selesai
+                        dibaca</bold></button>
+                <input type="hidden" id="bookId" />
+            </form>
+        </section>
+
+        <!-- mencari buku bookself -->
+        <section class="search_section">
+            <h2>Cari Buku (Opsional)</h2>
+            <form id="searchBook" autocomplete="off">
+                <label for="searchBookTitle">Judul</label>
+                <input type="text" id="searchBookTitle" maxlength="50" placeholder="cari buku disini..." />
+                <button type="submit" id="searchSubmit">Cari</button>
+            </form>
+        </section>
+
+        <!-- jika buku belum selesai dibaca -->
+        <section class="book_shelf">
+            <h2>Belum selesai dibaca</h2>
+             <div id="incompleteBookshelfList" class="book_list">
+            </div>
+        </section>
+
+        <!-- buku selesai dibaca -->
+        <section class="book_shelf">
+            <h2>Selesai dibaca</h2>
+
+            <div id="completeBookshelfList" class="book_list"></div>
+        </section>
+    </main>
+
+    <script src="js/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.4.26/dist/sweetalert2.all.min.js"></script>
+</body>
+
+</html>
